@@ -1,0 +1,97 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header nav ul li a {
+  transition: color 0.3s ease-in-out;
+}
+
+header nav ul li a:hover {
+  color: #4fd1c5;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  main .flex {
+    flex-direction: column;
+  }
+}
+/* Add this CSS to your stylesheet */
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Projects Section Styles */
+#projects {
+  background-color: #f9fafb; /* Light gray background */
+  padding: 40px 0; /* Padding for top and bottom */
+}
+
+.project-card {
+  background-color: #ffffff; /* White background for project cards */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.project-image {
+  border-top-left-radius: 8px; /* Rounded corners for image */
+  border-top-right-radius: 8px; /* Rounded corners for image */
+  width: 100%; /* Full width */
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Cover image */
+}
+
+.project-title {
+  font-size: 1.25rem; /* Font size for project title */
+  font-weight: bold; /* Bold title */
+  margin: 16px 0; /* Margin for spacing */
+}
+
+.project-button {
+  background-color: #fbbf24; /* Yellow background for button */
+  color: #ffffff; /* White text */
+  padding: 10px 20px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners for button */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.project-button:hover {
+  background-color: #f59e0b; /* Darker yellow on hover */
+}
+
+/* Technology Icons */
+.technology-icons {
+  display: flex; /* Flexbox for icon layout */
+  align-items: center; /* Center align icons vertically */
+}
+
+.technology-icons img {
+  width: 20px; /* Fixed width for icons */
+  height: 20px; /* Fixed height for icons */
+  margin-right: 5px; /* Margin between icons */
+}

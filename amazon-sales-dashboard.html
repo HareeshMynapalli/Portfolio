@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Sales Dashboard</title>
+  <meta name="description" content="Explore an Amazon Sales Dashboard with key metrics like Revenue, Profit, Units Sold, and more visualized in Power BI.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #1e1e2f; /* Dark theme background */
+      color: #e0e0e0; /* Light text color */
+    }
+
+    header {
+      background-color: #252545; /* Darker header color */
+      color: #d4af37; /* Gold text for contrast */
+      padding: 15px 20px;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      padding: 80px 20px 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #d4af37; /* Gold color for headings */
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .section p, .section ul {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #d4af37;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      display: block;
+      margin: 20px auto;
+      max-width: 80%;
+      height: auto;
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #252545;
+      color: #d4af37;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #d4af37; /* Gold button background */
+      color: #1e1e2f; /* Dark text on button */
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .button:hover {
+      background-color: #b99b2f; /* Slightly darker gold on hover */
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 90px 10px 10px;
+      }
+
+      .section h2 {
+        font-size: 1.3rem;
+      }
+
+      .button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 100px 10px 10px;
+      }
+
+      .section h2 {
+        font-size: 1.1rem;
+      }
+
+      .button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Amazon Sales Dashboard</h1>
+</header>
+
+<div class="container">
+  <div class="section">
+    <h2>Project Overview</h2>
+    <p>This project presents a comprehensive <strong>Amazon Sales Dashboard</strong> created using Power BI. It visualizes key metrics such as revenue, profit, units sold, and category performance to help Amazon optimize its sales strategy.</p>
+  </div>
+
+  <div class="section">
+    <h2>Features</h2>
+    <ul>
+      <li>Interactive visualization of revenue, profit, and units sold by product category.</li>
+      <li>Monthly and yearly trends in sales and profits.</li>
+      <li>Top-performing products and categories based on key metrics.</li>
+      <li>Dynamic filtering options for region- or category-specific analysis.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>View the Dashboard</h2>
+    <p>Click the image below to explore the dashboard in Power BI:</p>
+    <div style="text-align: center;">
+      <video controls width="80%" poster="Amazon_project_thumbnail.png" style="border: 2px solid gold; border-radius: 10px;">
+        <source src="Amazon_project_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Technologies Used</h2>
+    <ul>
+      <li><strong>Power BI:</strong> For creating interactive and visually appealing dashboards.</li>
+      <li><strong>Excel:</strong> For data preparation and cleaning.</li>
+    </ul>
+  </div>
+
+  <div class="button-container">
+    <a href="Amazon_Sales_Dashboard.zip" class="button" download>Download Project</a>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Hareesh Mynapalli. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
