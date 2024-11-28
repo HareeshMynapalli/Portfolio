@@ -431,31 +431,6 @@ section {
 </script>
 
 
-  
-<script>
-  document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
 
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-          const headerHeight = document.querySelector('header').offsetHeight; // Get the header height
-          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-
-          // Close the mobile menu after selecting a section
-          const mobileMenu = document.getElementById("mobileMenu");
-          if (!mobileMenu.classList.contains("hidden")) {
-            mobileMenu.classList.add("hidden");
-          }
-        }
-      });
-</script>
 </body>
 </html>
