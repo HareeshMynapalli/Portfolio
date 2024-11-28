@@ -347,6 +347,112 @@ section {
             top: targetPosition,
             behavior: 'smooth'
           });
+
+          // Close the mobile menu after selecting a section
+          const mobileMenu = document.getElementById("mobileMenu");
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+          }
+        }
+      });
+    });
+
+    // Mobile Menu Toggle (for opening/closing the mobile menu)
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Auto-Close Mobile Menu After Selecting a Section
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    });
+
+    // Section Toggle for Mobile Menu (Accordion behavior)
+    document.querySelectorAll('.section-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        // Toggle the active class for rotation
+        toggle.classList.toggle('active');
+
+        // Get the target section
+        const targetId = toggle.getAttribute('data-target');
+        const targetSection = document.querySelector(targetId);
+
+        // Toggle the section content
+        targetSection.classList.toggle('open');
+
+        // Close other open sections
+        document.querySelectorAll('.section-content').forEach(section => {
+          if (section !== targetSection) {
+            section.classList.remove('open');
+            section.style.maxHeight = null;
+          }
+        });
+
+        // Scroll to the revealed section
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+</script>
+
+<script>
+  // AOS Initialization (Animation on Scroll)
+  AOS.init({
+    duration: 1000,
+    once: true,
+    mirror: false
+  });
+
+  // Form Submission Handler (for Contact Form)
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Validate form data
+    if (name && email && subject && message) {
+      // Display success message
+      document.getElementById('success-message').textContent = 'Message sent successfully!';
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // Reset form
+      document.getElementById('contact-form').reset();
+    } else {
+      // Display error message
+      document.getElementById('success-message').textContent = 'Please fill in all the required fields.';
+      document.getElementById('success-message').classList.remove('hidden');
+    }
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Smooth Scrolling for Mobile Navigation with Header Offset
+    document.querySelectorAll('.mobile-nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const offset = document.querySelector('header').offsetHeight; // Header offset
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
         }
 
         // Close the mobile menu after selecting a section
@@ -395,39 +501,7 @@ section {
     });
   });
 </script>
-<script>
-  // AOS Initialization (Animation on Scroll)
-  AOS.init({
-    duration: 1000,
-    once: true,
-    mirror: false
-  });
 
-  // Form Submission Handler (for Contact Form)
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    
-    // Get form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    // Validate form data
-    if (name && email && subject && message) {
-      // Display success message
-      document.getElementById('success-message').textContent = 'Message sent successfully!';
-      document.getElementById('success-message').classList.remove('hidden');
-
-      // Reset form
-      document.getElementById('contact-form').reset();
-    } else {
-      // Display error message
-      document.getElementById('success-message').textContent = 'Please fill in all the required fields.';
-      document.getElementById('success-message').classList.remove('hidden');
-    }
-  }
-</script>
   
 </body>
 </html>
