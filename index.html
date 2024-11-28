@@ -327,5 +327,97 @@ section {
       </div>
     </section>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // AOS Initialization
+    AOS.init({
+      duration: 1000,
+      once: true,
+      mirror: false
+    });
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Section Toggle for Mobile Menu
+    const sectionToggles = document.querySelectorAll('.section-toggle');
+
+    sectionToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        // Toggle the active class for rotation
+        toggle.classList.toggle('active');
+
+        // Get the target section
+        const targetId = toggle.getAttribute('data-target');
+        const targetSection = document.querySelector(targetId);
+
+        // Toggle the section content
+        targetSection.classList.toggle('open');
+
+        // Close other open sections
+        sectionToggles.forEach(otherToggle => {
+          if (otherToggle !== toggle) {
+            otherToggle.classList.remove('active');
+            const otherId = otherToggle.getAttribute('data-target');
+            const otherSection = document.querySelector(otherId);
+            otherSection.classList.remove('open');
+          }
+        });
+
+        // Close the mobile menu after selecting a section
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    // Smooth Scrolling for Desktop Navigation
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = event.target.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        // Calculate the top position of the target section
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const targetTop = targetElement.offsetTop - headerHeight;
+
+        // Smooth scroll to the target section
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Form Submission Handler
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      // Validate form data
+      if (name && email && subject && message) {
+        // Display success message
+        document.getElementById('success-message').textContent = 'Message sent successfully!';
+        document.getElementById('success-message').classList.remove('hidden');
+
+        // Reset form
+        document.getElementById('contact-form').reset();
+      } else {
+        // Display error message
+        document.getElementById('success-message').textContent = 'Please fill in all the required fields.';
+        document.getElementById('success-message').classList.remove('hidden');
+      }
+    }
+  </script>
+  
 </body>
 </html>
