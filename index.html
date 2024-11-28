@@ -329,52 +329,9 @@ section {
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Desktop Navigation
-    document.querySelectorAll(".desktop-nav a").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        const targetId = link.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
-        targetSection.scrollIntoView({ behavior: "smooth" });
-      });
-    });
-
-    // Mobile Navigation Toggle
-    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    mobileMenuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-
-    document.querySelectorAll(".section-toggle").forEach((toggle) => {
-      toggle.addEventListener("click", () => {
-        const target = document.querySelector(toggle.dataset.target);
-        const isOpen = target.classList.contains("open");
-
-        // Collapse all sections
-        document.querySelectorAll(".section-content").forEach((section) => {
-          section.classList.remove("open");
-          section.style.maxHeight = null;
-        });
-
-        // Expand or collapse current section
-        if (!isOpen) {
-          target.classList.add("open");
-          target.style.maxHeight = target.scrollHeight + "px";
-        }
-
-        // Scroll to the revealed section
-        target.scrollIntoView({ behavior: "smooth" });
-      });
-    });
-  });
-</script>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
+    // Smooth Scrolling for Desktop and Mobile Navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -383,7 +340,7 @@ section {
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-          const offset = document.querySelector('header').offsetHeight;
+          const offset = document.querySelector('header').offsetHeight; // Header offset
           const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
 
           window.scrollTo({
@@ -393,30 +350,27 @@ section {
         }
       });
     });
-  });
-</script>
-
-  
-  <script>
-    // AOS Initialization
-    AOS.init({
-      duration: 1000,
-      once: true,
-      mirror: false
-    });
 
     // Mobile Menu Toggle
     const mobileMenuToggle = document.getElementById("mobileMenuToggle");
     const mobileMenu = document.getElementById("mobileMenu");
 
+    // Open or Close the Mobile Menu
     mobileMenuToggle.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
     });
 
-    // Section Toggle for Mobile Menu
-    const sectionToggles = document.querySelectorAll('.section-toggle');
+    // Auto-Close Mobile Menu After Selecting a Section
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    });
 
-    sectionToggles.forEach(toggle => {
+    // Section Toggle for Mobile Menu
+    document.querySelectorAll('.section-toggle').forEach(toggle => {
       toggle.addEventListener('click', () => {
         // Toggle the active class for rotation
         toggle.classList.toggle('active');
@@ -429,70 +383,52 @@ section {
         targetSection.classList.toggle('open');
 
         // Close other open sections
-        sectionToggles.forEach(otherToggle => {
-          if (otherToggle !== toggle) {
-            otherToggle.classList.remove('active');
-            const otherId = otherToggle.getAttribute('data-target');
-            const otherSection = document.querySelector(otherId);
-            otherSection.classList.remove('open');
+        document.querySelectorAll('.section-content').forEach(section => {
+          if (section !== targetSection) {
+            section.classList.remove('open');
+            section.style.maxHeight = null;
           }
         });
 
-        // Close the mobile menu after selecting a section
-        mobileMenu.classList.add("hidden");
+        // Scroll to the revealed section
+        targetSection.scrollIntoView({ behavior: "smooth" });
       });
     });
-
-    // Smooth Scrolling for Desktop Navigation
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const targetId = event.target.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        // Calculate the top position of the target section
-        const headerHeight = document.querySelector('header').offsetHeight;
-        const targetTop = targetElement.offsetTop - headerHeight;
-
-        // Smooth scroll to the target section
-        window.scrollTo({
-          top: targetTop,
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Form Submission Handler
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      
-      // Get form data
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-
-      // Validate form data
-      if (name && email && subject && message) {
-        // Display success message
-        document.getElementById('success-message').textContent = 'Message sent successfully!';
-        document.getElementById('success-message').classList.remove('hidden');
-
-        // Reset form
-        document.getElementById('contact-form').reset();
-      } else {
-        // Display error message
-        document.getElementById('success-message').textContent = 'Please fill in all the required fields.';
-        document.getElementById('success-message').classList.remove('hidden');
-      }
-    }
-  </script>
-  <script>
-  // Toggle mobile menu visibility
-  document.getElementById('mobileMenuToggle').addEventListener('click', () => {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
   });
+</script>
+
+<script>
+  // AOS Initialization
+  AOS.init({
+    duration: 1000,
+    once: true,
+    mirror: false
+  });
+
+  // Form Submission Handler
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Validate form data
+    if (name && email && subject && message) {
+      // Display success message
+      document.getElementById('success-message').textContent = 'Message sent successfully!';
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // Reset form
+      document.getElementById('contact-form').reset();
+    } else {
+      // Display error message
+      document.getElementById('success-message').textContent = 'Please fill in all the required fields.';
+      document.getElementById('success-message').classList.remove('hidden');
+    }
+  }
 </script>
 </body>
 </html>
