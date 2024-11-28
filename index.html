@@ -121,13 +121,11 @@ section {
         <li><a href="#contact" class="text-gray-700 hover:text-teal-500">Contact</a></li>
       </ul>
     </nav>
-
     <!-- Mobile Menu Toggle -->
     <button id="mobileMenuToggle" class="md:hidden text-gray-700">
       <i class="fas fa-bars text-2xl"></i>
     </button>
   </div>
-
   <!-- Mobile Navigation -->
   <nav id="mobileMenu" class="md:hidden hidden bg-white shadow-lg p-4">
     <ul class="flex flex-col space-y-4">
@@ -141,10 +139,7 @@ section {
     </ul>
   </nav>
 </header>
-
-
-
-  <main class="mt-24 flex flex-col items-center">
+ <main class="mt-24 flex flex-col items-center">
     <!-- Rest of the original main content remains unchanged -->
     <section class="flex flex-col lg:flex-row items-center justify-center w-full h-screen px-12 text-center lg:text-left" data-aos="fade-up">
       <img alt="Profile picture of Hareesh Mynapalli" class="profile-image rounded-full" src="Hareesh_Mynapalli.jpg" data-aos="zoom-in" data-aos-delay="300" />
@@ -497,6 +492,48 @@ section {
 
         // Scroll to the revealed section
         targetSection.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    // Mobile Menu Toggle (for opening/closing the mobile menu)
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenuToggle.classList.toggle("active"); // Toggle button state
+    });
+
+    // Auto-Close Mobile Menu After Selecting a Section
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden"); // Close the menu
+          mobileMenuToggle.classList.remove("active"); // Reset the toggle button state
+        }
+      });
+    });
+
+    // Smooth Scrolling for Mobile Navigation with Header Offset
+    document.querySelectorAll('.mobile-nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const offset = document.querySelector('header').offsetHeight; // Header offset
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   });
