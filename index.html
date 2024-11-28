@@ -322,6 +322,51 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Desktop Navigation
+    document.querySelectorAll(".desktop-nav a").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Mobile Navigation Toggle
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.querySelectorAll(".section-toggle").forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const target = document.querySelector(toggle.dataset.target);
+        const isOpen = target.classList.contains("open");
+
+        // Collapse all sections
+        document.querySelectorAll(".section-content").forEach((section) => {
+          section.classList.remove("open");
+          section.style.maxHeight = null;
+        });
+
+        // Expand or collapse current section
+        if (!isOpen) {
+          target.classList.add("open");
+          target.style.maxHeight = target.scrollHeight + "px";
+        }
+
+        // Scroll to the revealed section
+        target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+</script>
+
+  
   <script>
     // AOS Initialization
     AOS.init({
