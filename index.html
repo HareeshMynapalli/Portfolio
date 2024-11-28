@@ -85,6 +85,13 @@
         font-size: 1.25rem;
       }
     }
+    section {
+  scroll-margin-top: 5rem; /* Adjust based on header height */
+}
+section {
+  padding-top: 2rem;
+}
+
 
     @media (min-width: 769px) {
       #mobileMenu {
@@ -361,6 +368,29 @@
 
         // Scroll to the revealed section
         target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+</script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const offset = document.querySelector('header').offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   });
