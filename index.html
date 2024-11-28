@@ -329,85 +329,81 @@ section {
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Smooth Scrolling for Mobile Navigation with Header Offset
+    document.querySelectorAll('.mobile-nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const offset = document.querySelector('header').offsetHeight; // Header offset
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+
+        // Close the mobile menu after selecting a section
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+          mobileMenuToggle.classList.remove("active"); // Reset the toggle button state
+        }
+      });
+    });
+
+    // Mobile Menu Toggle (for opening/closing the mobile menu)
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenuToggle.classList.toggle("active"); // Indicate open/close state
+    });
+
+    // Section Toggle for Mobile Menu (Accordion behavior)
+    document.querySelectorAll('.section-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        // Toggle the active class for rotation
+        toggle.classList.toggle('active');
+
+        // Get the target section
+        const targetId = toggle.getAttribute('data-target');
+        const targetSection = document.querySelector(targetId);
+
+        // Toggle the section content
+        targetSection.classList.toggle('open');
+
+        // Close other open sections
+        document.querySelectorAll('.section-content').forEach(section => {
+          if (section !== targetSection) {
+            section.classList.remove('open');
+            section.style.maxHeight = null;
+          }
+        });
+
+        // Scroll to the revealed section
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+</script>
 <script>
-  // AOS Initialization
+  // AOS Initialization (Animation on Scroll)
   AOS.init({
     duration: 1000,
     once: true,
     mirror: false
   });
 
-  // Mobile Menu Toggle
-  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  mobileMenuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-
-  // Section Toggle for Mobile Menu
-  const sectionToggles = document.querySelectorAll('.section-toggle');
-
-  sectionToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      // Toggle the active class for rotation
-      toggle.classList.toggle('active');
-
-      // Get the target section
-      const targetId = toggle.getAttribute('data-target');
-      const targetSection = document.querySelector(targetId);
-
-      // Toggle the section content
-      targetSection.classList.toggle('open');
-
-      // Close other open sections
-      sectionToggles.forEach(otherToggle => {
-        if (otherToggle !== toggle) {
-          otherToggle.classList.remove('active');
-          const otherId = otherToggle.getAttribute('data-target');
-          const otherSection = document.querySelector(otherId);
-          otherSection.classList.remove('open');
-        }
-      });
-
-      // Close the mobile menu after selecting a section
-      mobileMenu.classList.add("hidden");
-    });
-  });
-
-  // **Close Mobile Menu Automatically After Section Selection**
-  document.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-      const navbarToggler = document.querySelector(".navbar-toggler");
-      const navbarCollapse = document.querySelector(".navbar-collapse");
-
-      // Check if the toggle is visible (mobile mode)
-      if (navbarToggler && navbarCollapse.classList.contains("show")) {
-        navbarToggler.click(); // Programmatically close the menu
-      }
-    });
-  });
-
-  // Smooth Scrolling for Desktop Navigation
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      const targetId = event.target.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-
-      // Calculate the top position of the target section
-      const headerHeight = document.querySelector('header').offsetHeight;
-      const targetTop = targetElement.offsetTop - headerHeight;
-
-      // Smooth scroll to the target section
-      window.scrollTo({
-        top: targetTop,
-        behavior: 'smooth'
-      });
-    });
-  });
-
-  // Form Submission Handler
+  // Form Submission Handler (for Contact Form)
   function handleFormSubmit(event) {
     event.preventDefault();
     
