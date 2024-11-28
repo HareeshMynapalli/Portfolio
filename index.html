@@ -99,92 +99,43 @@
 <body class="bg-gray-50">
   <!-- Header with Responsive Navigation -->
   <header class="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
-    <div class="flex justify-between items-center p-6">
-      <h1 class="text-3xl font-bold">Hareesh's Portfolio</h1>
-      
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav hidden md:block">
-        <ul class="flex space-x-8">
-          <li><a href="#home" class="text-gray-700 hover:text-teal-500">Home</a></li>
-          <li><a href="#about" class="text-gray-700 hover:text-teal-500">About</a></li>
-          <li><a href="#experience" class="text-gray-700 hover:text-teal-500">Experience</a></li>
-          <li><a href="#skills" class="text-gray-700 hover:text-teal-500">Skills</a></li>
-          <li><a href="#projects" class="text-gray-700 hover:text-teal-500">Projects</a></li>
-          <li><a href="#certificates" class="text-gray-700 hover:text-teal-500">Certificates</a></li>
-          <li><a href="#contact" class="text-gray-700 hover:text-teal-500">Contact</a></li>
-        </ul>
-      </nav>
+  <div class="flex justify-between items-center p-6">
+    <h1 class="text-3xl font-bold">Hareesh's Portfolio</h1>
 
-      <!-- Mobile Menu Toggle -->
-      <button id="mobileMenuToggle" class="md:hidden text-gray-700">
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
-    </div>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav hidden md:block">
+      <ul class="flex space-x-8">
+        <li><a href="#home" class="text-gray-700 hover:text-teal-500">Home</a></li>
+        <li><a href="#about" class="text-gray-700 hover:text-teal-500">About</a></li>
+        <li><a href="#experience" class="text-gray-700 hover:text-teal-500">Experience</a></li>
+        <li><a href="#skills" class="text-gray-700 hover:text-teal-500">Skills</a></li>
+        <li><a href="#projects" class="text-gray-700 hover:text-teal-500">Projects</a></li>
+        <li><a href="#certificates" class="text-gray-700 hover:text-teal-500">Certificates</a></li>
+        <li><a href="#contact" class="text-gray-700 hover:text-teal-500">Contact</a></li>
+      </ul>
+    </nav>
 
-    <!-- Mobile Navigation Sections -->
-    <div id="mobileMenu" class="md:hidden hidden">
-      <div class="section-toggle" data-target="#home-section">
-        <span>Home</span>
-      </div>
-      <div id="home-section" class="section-content">
-        <!-- Home section content can be added here if needed -->
-      </div>
+    <!-- Mobile Menu Toggle -->
+    <button id="mobileMenuToggle" class="md:hidden text-gray-700">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
 
-      <div class="section-toggle" data-target="#about-section" href="#about">
-        <span>About</span>
-      </div>
-      <div id="about-section" class="section-content">
-        <section class="mt-16 mb-16 w-full" data-aos="fade-up" data-aos-duration="1000">
-          <!-- Existing About Me content -->
-        </section>
-      </div>
+  <!-- Mobile Navigation -->
+  <nav id="mobileMenu" class="md:hidden hidden bg-white shadow-lg p-4">
+    <ul class="flex flex-col space-y-4">
+      <li><a href="#home" class="text-gray-700 hover:text-teal-500">Home</a></li>
+      <li><a href="#about" class="text-gray-700 hover:text-teal-500">About</a></li>
+      <li><a href="#experience" class="text-gray-700 hover:text-teal-500">Experience</a></li>
+      <li><a href="#skills" class="text-gray-700 hover:text-teal-500">Skills</a></li>
+      <li><a href="#projects" class="text-gray-700 hover:text-teal-500">Projects</a></li>
+      <li><a href="#certificates" class="text-gray-700 hover:text-teal-500">Certificates</a></li>
+      <li><a href="#contact" class="text-gray-700 hover:text-teal-500">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-      <div class="section-toggle" data-target="#experience-section" href="#experience">
-        <span>Experience</span>
-      </div>
-      <div id="experience-section" class="section-content">
-        <section class="mt-16 mb-16 w-full" data-aos="fade-up" data-aos-duration="1000">
-          <!-- Existing Experience content -->
-        </section>
-      </div>
 
-      <div class="section-toggle" data-target="#skills-section" href="#skills">
-        <span>Skills</span>
-      </div>
-      <div id="skills-section" class="section-content">
-        <section class="text-center w-full" data-aos="fade-up" data-aos-duration="1000">
-          <!-- Existing Skills content -->
-        </section>
-      </div>
-
-      <div class="section-toggle" data-target="#projects-section" href="#projects">
-        <span>Projects</span>
-      </div>
-      <div id="projects-section" class="section-content">
-        <section class="mt-12 w-full" data-aos="fade-up" data-aos-duration="1000">
-          <!-- Existing Projects content -->
-        </section>
-      </div>
-
-      <div class="section-toggle" data-target="#certificates-section" href="#certificates">
-        <span>Certificates</span>
-      </div>
-      <div id="certificates-section" class="section-content">
-        <section class="text-center my-16 w-full" data-aos="fade-up" data-aos-duration="1000">
-          <!-- Existing Certificates content -->
-        </section>
-      </div>
-
-      <div class="section-toggle" data-target="#contact-section" href="#contact">
-        <span>Contact</span>
-      </div>
-      <div id="contact-section" class="section-content">
-        <section class="mt-12 w-full" data-aos="fade-up" data-aos-duration="1000">
-          <!-- Existing Contact content -->
-        </section>
-      </div>
-    </div>
-  </header>
 
   <main class="mt-24 flex flex-col items-center">
     <!-- Rest of the original main content remains unchanged -->
@@ -461,5 +412,12 @@
       }
     }
   </script>
+  <script>
+  // Toggle mobile menu visibility
+  document.getElementById('mobileMenuToggle').addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  });
+</script>
 </body>
 </html>
