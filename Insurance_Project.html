@@ -187,82 +187,83 @@
     color: var(--bg-color);
     transform: scale(1.05);
   }
-
-  @media (max-width: 768px) {
-    header h1 {
-      font-size: 1.5rem;
-    }
-
-    .theme-switch {
-      right: 20px;
-      top: 15px;
-    }
-
-    .section h2 {
-      font-size: 1.2rem;
-    }
-
-    img, video {
-      max-width: 100%;
-      border: none;
-      box-shadow: none;
-    }
-
-    .button {
-      font-size: 0.9rem;
-      padding: 8px 15px;
-    }
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px; /* Reduce padding to fit the screen */
+    text-align: left; /* Align text to the left for better space utilization */
+    position: fixed; /* Make sure it's fixed on top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure header stays on top */
   }
 
-  @media (max-width: 480px) {
-    .theme-switch {
-      flex-direction: column;
-      gap: 5px;
-    }
+  header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center; /* Center the header text */
+  }
+
+  .theme-switch {
+    right: 20px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section h2 {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .container {
+    padding-top: 80px; /* Add padding to the container to compensate for the fixed header height */
+  }
+
+  img, video {
+    max-width: 100%;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px; /* Adjust padding for very small screens */
+    position: relative; /* Change the position for smaller screens */
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .theme-switch {
+    flex-direction: column;
+    gap: 5px;
+    right: 0;
+    top: 0;
+  }
+
   .nav-arrow {
     font-size: 0.9rem; /* Reduce font size */
     padding: 3px 6px; /* Reduce padding */
   }
+
+  .container {
+    padding-top: 60px; /* Adjust for smaller screen header */
+  }
 }
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-  @media (max-width: 768px) {
-    header {
-      padding: 10px 15px;
-      text-align: left;
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      margin: 0;
-      text-align: center;
-    }
-
-    .theme-switch {
-      right: 20px;
-      top: 10px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    header h1 {
-      font-size: 1.2rem;
-    }
-
-    .theme-switch {
-      right: 0;
-      top: 0;
-    }
-
-    header {
-      padding: 10px;
-      position: relative;
-    }
-  }
 </style>
 
 </head>
