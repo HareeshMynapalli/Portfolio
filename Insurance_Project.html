@@ -188,26 +188,6 @@
     transform: scale(1.05);
   }
 
-  .nav-arrow {
-    position: absolute;
-    left: 20px;
-    top: 15px;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: var(--header-text);
-    background-color: var(--header-bg);
-    border: 1px solid var(--header-text);
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.5s, color 0.5s;
-  }
-
-  .nav-arrow:hover {
-    background-color: var(--header-text);
-    color: var(--bg-color);
-  }
-
   @media (max-width: 768px) {
     header h1 {
       font-size: 1.5rem;
@@ -266,14 +246,6 @@
       right: 20px;
       top: 10px;
     }
-
-    .nav-arrow {
-      font-size: 1rem;
-      padding: 5px 10px;
-      position: absolute;
-      top: 12px;
-      left: 15px;
-    }
   }
 
   @media (max-width: 480px) {
@@ -296,7 +268,6 @@
 </head>
 <body>
   <header>
-    <a href="index.html" class="nav-arrow" title="Go back to the main page">&#8592;</a>
     <h1>Insurance Weekly Branch Report</h1>
   </header>
   <div class="container">
