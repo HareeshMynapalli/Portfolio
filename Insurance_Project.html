@@ -187,86 +187,50 @@
     color: var(--bg-color);
     transform: scale(1.05);
   }
-@media (max-width: 768px) {
-  header {
-    padding: 5px 10px; /* Further reduce padding */
-    text-align: left;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    .container {
+      padding: 90px 10px 10px;
+    }
+
+    .section h2 {
+      font-size: 1.3rem;
+    }
+
+    .button {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
   }
 
-  header h1 {
-    font-size: 1.3rem; /* Reduce font size */
-    margin: 0;
-    text-align: center;
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    .container {
+      padding: 100px 10px 10px;
+    }
+
+    .section h2 {
+      font-size: 1.1rem;
+    }
+
+    .button {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+    }
   }
 
-  .theme-switch {
-    right: 10px; /* Reduce right spacing */
-    top: 5px; /* Reduce top spacing */
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Reduce gap between items */
-  }
-
-  .section h2 {
-    font-size: 1.1rem; /* Reduce font size */
-  }
-
-  .button {
-    font-size: 0.85rem; /* Further reduce button font size */
-    padding: 6px 12px; /* Reduce button padding */
-  }
-
-  .container {
-    padding-top: 60px; /* Reduce container top padding */
-  }
-
-  img, video {
+  img {
     max-width: 100%;
-    border: none;
-    box-shadow: none;
+    height: auto;
   }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 5px; /* Further reduce padding for small screens */
-    position: relative;
-  }
-
-  header h1 {
-    font-size: 1.1rem; /* Smaller font size */
-  }
-
-  .theme-switch {
-    flex-direction: column;
-    gap: 3px; /* Reduce gap further */
-    right: 0;
-    top: 0;
-  }
-
-  .nav-arrow {
-    font-size: 0.8rem; /* Reduce font size further */
-    padding: 2px 5px; /* Further reduce padding */
-  }
-
-  .container {
-    padding-top: 50px; /* Adjust for smaller screen header */
-  }
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-</style>
-
+  </style>
 </head>
 <body>
   <header>
