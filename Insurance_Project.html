@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Insurance Weekly Branch Report</title>
   <meta name="description" content="Explore a comprehensive Insurance Weekly Branch Report with key metrics like Cross-Sell, Renewals, Opportunities, and Revenue Contributions visualized in Tableau.">
   <style>
@@ -43,7 +42,7 @@
     }
 
     .container {
-      padding: 80px 20px 20px;
+      padding: 100px 20px 20px; /* Adjusted for the fixed header */
     }
 
     .section {
@@ -112,7 +111,7 @@
     .nav-arrow {
       position: absolute;
       left: 20px;
-      top: 15px;
+      top: 20px; /* Adjusted top position to avoid overlap */
       font-size: 1.5rem;
       text-decoration: none;
       color: var(--header-text);
@@ -121,6 +120,7 @@
       padding: 5px 10px;
       border-radius: 5px;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 2000; /* Ensures the arrow stays on top */
     }
 
     .nav-arrow:hover {
