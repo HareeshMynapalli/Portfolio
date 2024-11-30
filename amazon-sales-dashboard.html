@@ -11,20 +11,20 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      background-color: #1e1e2f; /* Dark theme background */
-      color: #e0e0e0; /* Light text color */
+      background-color: #f4f4f4; /* Light theme background */
+      color: #333; /* Dark text color for readability */
     }
 
     header {
-      background-color: #252545; /* Darker header color */
-      color: #d4af37; /* Gold text for contrast */
+      background-color: #fff; /* Light header color */
+      color: #333; /* Dark text for contrast */
       padding: 15px 20px;
       text-align: center;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
@@ -41,8 +41,8 @@
     }
 
     .section h2 {
-      color: #d4af37; /* Gold color for headings */
-      border-bottom: 2px solid #d4af37;
+      color: #007bff; /* Blue color for headings */
+      border-bottom: 2px solid #007bff;
       display: inline-block;
       margin-bottom: 10px;
       font-size: 1.5rem;
@@ -55,7 +55,7 @@
 
     a {
       text-decoration: none;
-      color: #d4af37;
+      color: #007bff; /* Blue links */
     }
 
     a:hover {
@@ -67,16 +67,17 @@
       margin: 20px auto;
       max-width: 80%;
       height: auto;
-      border: 2px solid #d4af37;
+      border: 2px solid #007bff;
       border-radius: 10px;
-      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     footer {
       text-align: center;
       padding: 10px;
-      background-color: #252545;
-      color: #d4af37;
+      background-color: #fff;
+      color: #333;
+      border-top: 1px solid #ddd;
     }
 
     .button-container {
@@ -86,20 +87,20 @@
 
     .button {
       padding: 10px 20px;
-      background-color: #d4af37; /* Gold button background */
-      color: #1e1e2f; /* Dark text on button */
+      background-color: #000000; /* Blue button background */
+      color: #fff; /* White text on button */
       text-decoration: none;
       border-radius: 5px;
       font-size: 1rem;
     }
 
     .button:hover {
-      background-color: #b99b2f; /* Slightly darker gold on hover */
+      background-color: #0056b3; /* Slightly darker blue on hover */
     }
 
     @media (max-width: 768px) {
       header h1 {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
       }
 
       .container {
@@ -118,7 +119,7 @@
 
     @media (max-width: 480px) {
       header h1 {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
       }
 
       .container {
@@ -162,7 +163,7 @@
     <h2>View the Dashboard</h2>
     <p>Click the image below to explore the dashboard in Power BI:</p>
     <div style="text-align: center;">
-      <video controls width="80%" poster="Amazon_project_thumbnail.png" style="border: 2px solid gold; border-radius: 10px;">
+      <video controls width="80%" poster="Amazon_project_thumbnail.png" style="border: 2px solid #007bff; border-radius: 10px;">
         <source src="Amazon_project_video.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
