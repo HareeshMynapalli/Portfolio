@@ -249,6 +249,73 @@ img {
   max-width: 100%;
   height: auto;
 }
+    @media (max-width: 768px) {
+  header {
+    padding: 10px 15px; /* Reduce padding to fit the screen */
+    text-align: left; /* Align text to the left for better space utilization */
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center; /* Center the header text */
+  }
+
+  .theme-switch {
+    right: 20px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .theme-switch label {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+
+  .theme-switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  .nav-arrow {
+    font-size: 1rem;
+    padding: 5px 10px;
+    position: absolute;
+    top: 12px;
+    left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .theme-switch {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-arrow {
+    font-size: 1rem;
+    padding: 5px 8px;
+  }
+
+  header {
+    padding: 10px; /* Adjust padding for very small screens */
+    position: relative;
+  }
+
+  .theme-switch {
+    right: 0; /* Adjust placement */
+    top: 0;
+  }
+}
+
 
   </style>
 </head>
